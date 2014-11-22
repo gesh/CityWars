@@ -1,0 +1,1 @@
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\CityWars.Windows.csproj;neutral
