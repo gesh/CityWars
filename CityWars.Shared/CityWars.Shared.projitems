@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\UserFighterPage.xaml.cs">
       <DependentUpon>UserFighterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FighterViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RegisterPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserFighterPageViewModel.cs" />

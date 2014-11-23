@@ -8,10 +8,6 @@ namespace CityWars.ViewModels
 {
     public class UserFighterPageViewModel : ViewModelBase
     {
-        public UserFighterPageViewModel()
-        {
-
-        }
 
         public string FighterName { get; set; }
 

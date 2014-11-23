@@ -1,4 +1,6 @@
 ﻿using CityWars.Common;
+using CityWars.Models;
+using CityWars.ViewModels;
 using Parse;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,8 @@ namespace CityWars.Pages
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+
+        private FighterViewModel CurrentFighter { get; set; }
 
         public UserFighterPage()
         {
@@ -105,11 +109,15 @@ namespace CityWars.Pages
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var userId = ParseUser.CurrentUser.ObjectId.ToString();
-            var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-                        where fighterFromDb.Get<string>("userId") == userId
-                        select fighterFromDb;
-            var result = query.FirstOrDefaultAsync().Result;
+            this.navigationHelper.OnNavigatedTo(e);
+
+            var fighterToShow = e.Parameter as FighterViewModel;
+            CurrentFighter = fighterToShow;
+            //var userId = ParseUser.CurrentUser.ObjectId.ToString();
+            //var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
+            //            where fighterFromDb.Get<string>("userId").Equals(userId)
+            //            select fighterFromDb;
+            //var result = query.FirstOrDefaultAsync().Result;
             //this.FighterName = result["FighterName"].ToString();
             //this.Health = (double)result["Health"];
             //this.Level = (int)result["Level"];
@@ -118,8 +126,35 @@ namespace CityWars.Pages
             //this.FighterType = result["FighterType"].ToString();
             //this.Message = result["Message"].ToString();
 
-            this.FighterName.Text = result["FighterName"].ToString();
-            this.navigationHelper.OnNavigatedTo(e);
+            //this.FighterName.Text = result["FighterName"].ToString();
+            this.FighterName.Text = fighterToShow.FighterName;
+            this.FighterType.Text = fighterToShow.FighterType;
+            if (fighterToShow.FighterType == "Nacepenata Batka")
+            {
+                //this.Image.Source = new ImageSource(;
+            }
+            if (fighterToShow.Health < 0) fighterToShow.Health = 0;
+            if (fighterToShow.Health <= 0)
+            {
+                this.Health.Text = string.Format("Dead! Respawn for 30 gold");
+                this.RegenerateHpButton.Content = "Respawn";
+            }
+            else
+            {
+                this.Health.Text = string.Format("Health: {0}/100", fighterToShow.Health);
+            }
+            this.Reputation.Text = string.Format("Reputation: {0}", fighterToShow.Reputation.ToString());
+            this.Experience.Text = string.Format("Experience: {0}",fighterToShow.Experience.ToString());
+            this.Level.Text = string.Format("Level: {0}",fighterToShow.Level.ToString());
+
+            var maxDmg = fighterToShow.Damage + 5;
+            var minDmg = fighterToShow.Damage - 5;
+
+            this.Damage.Text = string.Format("Damage: {0}-{1}",minDmg.ToString(),maxDmg.ToString());
+            this.Armor.Text = string.Format("Armor: {0}",fighterToShow.Armor.ToString());
+            this.City.Text = string.Format("City: {0}",fighterToShow.City);
+            this.Money.Text = string.Format("Money: {0}",fighterToShow.Money.ToString());
+
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -128,5 +163,50 @@ namespace CityWars.Pages
         }
 
         #endregion
+
+        private async void onRegenerateButtonClick(object sender, RoutedEventArgs e)
+        {
+            ParseQuery<ParseObject> query = ParseObject.GetQuery("Fighters");
+            ParseObject fighter = await query.GetAsync(CurrentFighter.FighterId);
+
+            var fighterCurrentMoney = int.Parse(fighter["Money"].ToString());
+
+            if (CurrentFighter.Health > 0 && CurrentFighter.Health < 100)
+            {
+                if (fighterCurrentMoney < 20)
+                {
+                    this.RegeneratedMessage.Text = "No enough money!";
+                }
+                else
+                {
+                    fighter["Money"] = fighterCurrentMoney - 20;
+                    this.Money.Text = string.Format("Money: {0}", fighter["Money"]);
+
+                    fighter["Health"] = 100;
+                    await fighter.SaveAsync();
+                    this.Health.Text = string.Format("Health: {0}/100", 100);
+                    CurrentFighter.Health = 100;
+                }
+            }
+            else if (CurrentFighter.Health <= 0) 
+            {
+                if (fighterCurrentMoney < 30)
+                {
+                    this.RegeneratedMessage.Text = "No enough money!";
+                }
+                else
+                {
+                    fighter["Money"] = fighterCurrentMoney - 30;
+                    this.Money.Text = string.Format("Money: {0}", fighter["Money"]);
+                    this.RegenerateHpButton.Content = "Regenerate";
+
+                    fighter["Health"] = 100;
+                    await fighter.SaveAsync();
+                    this.Health.Text = string.Format("Health: {0}/100", 100);
+                    CurrentFighter.Health = 100;
+                }
+            }
+
+        }
     }
 }

@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-11-22T17:52:22.684</Modified>
+      <Modified>2014-11-23T02:00:31.107</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\CityWars.Windows.exe">
       <PackagePath>CityWars.Windows.exe</PackagePath>
-      <Modified>2014-11-22T17:52:22.202</Modified>
+      <Modified>2014-11-23T02:00:27.531</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\packages\MvvmLightLibs.5.0.2.0\lib\netcore451\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -72,25 +72,33 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-14T08:55:28.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Shared\Images\fighter.png">
+      <PackagePath>Images\fighter.png</PackagePath>
+      <Modified>2014-11-22T18:45:31.387</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
       <Modified>2014-11-22T10:52:28.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\LoginPage.xbf">
       <PackagePath>Pages\LoginPage.xbf</PackagePath>
-      <Modified>2014-11-22T16:47:50.229</Modified>
+      <Modified>2014-11-23T02:00:25.912</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\RegisterPage.xbf">
+      <PackagePath>Pages\RegisterPage.xbf</PackagePath>
+      <Modified>2014-11-23T02:00:25.914</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\UserFighterPage.xbf">
       <PackagePath>Pages\UserFighterPage.xbf</PackagePath>
-      <Modified>2014-11-22T17:52:21.572</Modified>
+      <Modified>2014-11-23T02:00:25.916</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\CityWars.Windows.xr.xml">
       <PackagePath>CityWars.Windows.xr.xml</PackagePath>
-      <Modified>2014-11-22T17:52:20.010</Modified>
+      <Modified>2014-11-23T02:00:25.717</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-11-22T17:52:22.439</Modified>
+      <Modified>2014-11-23T02:00:30.394</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

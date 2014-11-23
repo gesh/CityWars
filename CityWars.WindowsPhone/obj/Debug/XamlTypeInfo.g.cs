@@ -740,3 +740,5 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
 }
 
 
+
+

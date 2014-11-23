@@ -20,6 +20,8 @@ namespace CityWars.Models
             this.Reputation = 1;
             this.City = city;
             this.FighterType = fighterType;
+            this.Experience = 0;
+            this.Money = 200;
             this.Message = null;
 
             setPowerByFighterType(fighterType);
@@ -109,5 +111,21 @@ namespace CityWars.Models
             get { return GetProperty<string>(); }
             set { SetProperty<string>(value); }
         }
+
+
+        [ParseFieldName("Experience")]
+        public int Experience
+        {
+            get { return GetProperty<int>(); }
+            set { SetProperty<int>(value); }
+        }
+
+        [ParseFieldName("Money")]
+        public double Money
+        {
+            get { return GetProperty<double>(); }
+            set { SetProperty<double>(value); }
+        }
+
     }
 }

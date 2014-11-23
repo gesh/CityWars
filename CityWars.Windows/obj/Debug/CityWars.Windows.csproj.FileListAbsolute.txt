@@ -56,3 +56,8 @@ C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserFig
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserFighterPage.g.cs
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserFighterPage.xaml
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserFighterPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\RegisterPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.g.i.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.g.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.xaml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.xbf

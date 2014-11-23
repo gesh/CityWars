@@ -23,17 +23,32 @@
 
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="My Fighter" Margin="0,-6.5,-0.167,26.5" FontSize="26"/>
+            <TextBlock Text="My Fighter" Margin="0,-6.5,-0.167,10" FontSize="26"/>
+            <Button x:ConnectionId='2' Content="Sign Out" HorizontalAlignment="Left" Margin="253,-50,0,0" VerticalAlignment="Top"
+                                                />
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <TextBlock Text="{Binding FighterName}" />
-            <Button x:ConnectionId='1' Content="Sign Out" HorizontalAlignment="Left" Margin="253,-68,0,0" VerticalAlignment="Top"
-                                                />
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,0,19,0" HorizontalAlignment="Center">
+
+           
             
-            <TextBlock Name="FighterName" FontSize="30"/>
-        </Grid>
+            <TextBlock Name="FighterName" Text="Fighter" TextAlignment="Center" FontSize="30"/>
+            <Image Name="Image" Width="362" Height="200" Source="/Images/fighter.png" />
+            <TextBlock Name="FighterType" Text="Nacepena Batka" FontSize="24" TextAlignment="Center"/>
+            <TextBlock Name="Health" Text="HP: 55/100" FontSize="24" TextAlignment="Center"/>
+
+            <TextBlock Name="Reputation" Text="Reputation: 11" FontSize="24" TextAlignment="Center"/>
+
+            <TextBlock Name="Experience" Text="Experience: 80/100" FontSize="24" TextAlignment="Center"/>
+            <TextBlock Name="Level" Text="Level: 2" TextAlignment="Center" FontSize="24" />
+            <TextBlock Name="Damage" Text="Damage: 20-30" TextAlignment="Center" FontSize="24" />
+            <TextBlock Name="Armor" Text="Armor: 15" TextAlignment="Center" FontSize="24" />
+            <TextBlock Name="City" Text="City: Sofia" FontSize="24" TextAlignment="Center"/>
+            <TextBlock Name="Money" Text="Money: 200" FontSize="24" TextAlignment="Center"/>
+            <TextBlock Name="RegeneratedMessage" FontSize="22" TextAlignment="Center" Text="..." />
+            <Button x:ConnectionId='1' Name="RegenerateHpButton"                                  Content="Regenerate" Width="200" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>
 

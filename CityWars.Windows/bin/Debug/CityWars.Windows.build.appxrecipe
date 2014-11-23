@@ -53,11 +53,17 @@
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Shared\Images\fighter.png">
+      <PackagePath>Images\fighter.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\LoginPage.xbf">
       <PackagePath>Pages\LoginPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\RegisterPage.xbf">
+      <PackagePath>Pages\RegisterPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\UserFighterPage.xbf">
       <PackagePath>Pages\UserFighterPage.xbf</PackagePath>
