@@ -61,3 +61,16 @@ C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\Registe
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.g.cs
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.xaml
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\RegisterPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Views\FooterView.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Views\FooterView.g.i.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Views\FooterView.g.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Views\FooterView.xaml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Views\FooterView.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles.intermediate
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\pri.resfiles.intermediate
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\priconfig.xml.intermediate

@@ -68,6 +68,9 @@
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\UserFighterPage.xbf">
       <PackagePath>Pages\UserFighterPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Views\FooterView.xbf">
+      <PackagePath>Views\FooterView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\CityWars.Windows.xr.xml">
       <PackagePath>CityWars.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>

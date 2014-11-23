@@ -22,7 +22,7 @@ namespace CityWars.Models
             this.FighterType = fighterType;
             this.Experience = 0;
             this.Money = 200;
-            this.Message = null;
+            this.Message = "Welcome to city wars";
 
             setPowerByFighterType(fighterType);
         }

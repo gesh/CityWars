@@ -67,6 +67,9 @@
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\Pages\AllFightersPage.xbf">
+      <PackagePath>Pages\AllFightersPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\Pages\LoginPage.xbf">
       <PackagePath>Pages\LoginPage.xbf</PackagePath>
     </AppxPackagedFile>

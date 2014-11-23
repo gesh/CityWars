@@ -6,6 +6,7 @@ namespace CityWars.ViewModels
 {
     public class FighterViewModel
     {
+
         public FighterViewModel(string fighterId, string userId, string fighterName, int health, int level, int reputation, int damage, int armor,
             int experience, double money, string fighterType, string city, string message)
         {

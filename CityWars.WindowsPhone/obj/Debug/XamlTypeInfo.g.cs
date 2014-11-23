@@ -124,8 +124,8 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[14];
-            _typeNameTable[0] = "CityWars.Pages.LoginPage";
+            _typeNameTable = new string[15];
+            _typeNameTable[0] = "CityWars.Pages.AllFightersPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "CityWars.Common.NavigationHelper";
@@ -133,15 +133,16 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
             _typeNameTable[5] = "CityWars.Common.ObservableDictionary";
             _typeNameTable[6] = "Object";
             _typeNameTable[7] = "String";
-            _typeNameTable[8] = "CityWars.ViewModels.LoginPageViewModel";
-            _typeNameTable[9] = "GalaSoft.MvvmLight.ViewModelBase";
-            _typeNameTable[10] = "GalaSoft.MvvmLight.ObservableObject";
-            _typeNameTable[11] = "CityWars.Pages.RegisterPage";
-            _typeNameTable[12] = "CityWars.ViewModels.RegisterPageViewModel";
-            _typeNameTable[13] = "CityWars.Pages.UserFighterPage";
+            _typeNameTable[8] = "CityWars.Pages.LoginPage";
+            _typeNameTable[9] = "CityWars.ViewModels.LoginPageViewModel";
+            _typeNameTable[10] = "GalaSoft.MvvmLight.ViewModelBase";
+            _typeNameTable[11] = "GalaSoft.MvvmLight.ObservableObject";
+            _typeNameTable[12] = "CityWars.Pages.RegisterPage";
+            _typeNameTable[13] = "CityWars.ViewModels.RegisterPageViewModel";
+            _typeNameTable[14] = "CityWars.Pages.UserFighterPage";
 
-            _typeTable = new global::System.Type[14];
-            _typeTable[0] = typeof(global::CityWars.Pages.LoginPage);
+            _typeTable = new global::System.Type[15];
+            _typeTable[0] = typeof(global::CityWars.Pages.AllFightersPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::CityWars.Common.NavigationHelper);
@@ -149,12 +150,13 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
             _typeTable[5] = typeof(global::CityWars.Common.ObservableDictionary);
             _typeTable[6] = typeof(global::System.Object);
             _typeTable[7] = typeof(global::System.String);
-            _typeTable[8] = typeof(global::CityWars.ViewModels.LoginPageViewModel);
-            _typeTable[9] = typeof(global::GalaSoft.MvvmLight.ViewModelBase);
-            _typeTable[10] = typeof(global::GalaSoft.MvvmLight.ObservableObject);
-            _typeTable[11] = typeof(global::CityWars.Pages.RegisterPage);
-            _typeTable[12] = typeof(global::CityWars.ViewModels.RegisterPageViewModel);
-            _typeTable[13] = typeof(global::CityWars.Pages.UserFighterPage);
+            _typeTable[8] = typeof(global::CityWars.Pages.LoginPage);
+            _typeTable[9] = typeof(global::CityWars.ViewModels.LoginPageViewModel);
+            _typeTable[10] = typeof(global::GalaSoft.MvvmLight.ViewModelBase);
+            _typeTable[11] = typeof(global::GalaSoft.MvvmLight.ObservableObject);
+            _typeTable[12] = typeof(global::CityWars.Pages.RegisterPage);
+            _typeTable[13] = typeof(global::CityWars.ViewModels.RegisterPageViewModel);
+            _typeTable[14] = typeof(global::CityWars.Pages.UserFighterPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -189,13 +191,14 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_LoginPage() { return new global::CityWars.Pages.LoginPage(); }
+        private object Activate_0_AllFightersPage() { return new global::CityWars.Pages.AllFightersPage(); }
         private object Activate_5_ObservableDictionary() { return new global::CityWars.Common.ObservableDictionary(); }
-        private object Activate_8_LoginPageViewModel() { return new global::CityWars.ViewModels.LoginPageViewModel(); }
-        private object Activate_10_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
-        private object Activate_11_RegisterPage() { return new global::CityWars.Pages.RegisterPage(); }
-        private object Activate_12_RegisterPageViewModel() { return new global::CityWars.ViewModels.RegisterPageViewModel(); }
-        private object Activate_13_UserFighterPage() { return new global::CityWars.Pages.UserFighterPage(); }
+        private object Activate_8_LoginPage() { return new global::CityWars.Pages.LoginPage(); }
+        private object Activate_9_LoginPageViewModel() { return new global::CityWars.ViewModels.LoginPageViewModel(); }
+        private object Activate_11_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
+        private object Activate_12_RegisterPage() { return new global::CityWars.Pages.RegisterPage(); }
+        private object Activate_13_RegisterPageViewModel() { return new global::CityWars.ViewModels.RegisterPageViewModel(); }
+        private object Activate_14_UserFighterPage() { return new global::CityWars.Pages.UserFighterPage(); }
         private void MapAdd_5_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -214,12 +217,11 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  CityWars.Pages.LoginPage
+            case 0:   //  CityWars.Pages.AllFightersPage
                 userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LoginPage;
+                userType.Activator = Activate_0_AllFightersPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
-                userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -259,27 +261,9 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
                 xamlType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  CityWars.ViewModels.LoginPageViewModel
-                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 9:   //  GalaSoft.MvvmLight.ViewModelBase
-                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ObservableObject"));
-                xamlType = userType;
-                break;
-
-            case 10:   //  GalaSoft.MvvmLight.ObservableObject
-                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_10_ObservableObject;
-                xamlType = userType;
-                break;
-
-            case 11:   //  CityWars.Pages.RegisterPage
+            case 8:   //  CityWars.Pages.LoginPage
                 userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_RegisterPage;
+                userType.Activator = Activate_8_LoginPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("ViewModel");
@@ -287,16 +271,44 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 12:   //  CityWars.ViewModels.RegisterPageViewModel
+            case 9:   //  CityWars.ViewModels.LoginPageViewModel
                 userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  CityWars.Pages.UserFighterPage
+            case 10:   //  GalaSoft.MvvmLight.ViewModelBase
+                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ObservableObject"));
+                xamlType = userType;
+                break;
+
+            case 11:   //  GalaSoft.MvvmLight.ObservableObject
+                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_11_ObservableObject;
+                xamlType = userType;
+                break;
+
+            case 12:   //  CityWars.Pages.RegisterPage
                 userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_UserFighterPage;
+                userType.Activator = Activate_12_RegisterPage;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  CityWars.ViewModels.RegisterPageViewModel
+                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  CityWars.Pages.UserFighterPage
+                userType = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_UserFighterPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
@@ -307,52 +319,62 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
         }
 
 
-        private object get_0_LoginPage_NavigationHelper(object instance)
+        private object get_0_AllFightersPage_NavigationHelper(object instance)
+        {
+            var that = (global::CityWars.Pages.AllFightersPage)instance;
+            return that.NavigationHelper;
+        }
+        private object get_1_AllFightersPage_DefaultViewModel(object instance)
+        {
+            var that = (global::CityWars.Pages.AllFightersPage)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_2_LoginPage_NavigationHelper(object instance)
         {
             var that = (global::CityWars.Pages.LoginPage)instance;
             return that.NavigationHelper;
         }
-        private object get_1_LoginPage_DefaultViewModel(object instance)
+        private object get_3_LoginPage_DefaultViewModel(object instance)
         {
             var that = (global::CityWars.Pages.LoginPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_2_LoginPage_ViewModel(object instance)
+        private object get_4_LoginPage_ViewModel(object instance)
         {
             var that = (global::CityWars.Pages.LoginPage)instance;
             return that.ViewModel;
         }
-        private void set_2_LoginPage_ViewModel(object instance, object Value)
+        private void set_4_LoginPage_ViewModel(object instance, object Value)
         {
             var that = (global::CityWars.Pages.LoginPage)instance;
             that.ViewModel = (global::CityWars.ViewModels.LoginPageViewModel)Value;
         }
-        private object get_3_RegisterPage_NavigationHelper(object instance)
+        private object get_5_RegisterPage_NavigationHelper(object instance)
         {
             var that = (global::CityWars.Pages.RegisterPage)instance;
             return that.NavigationHelper;
         }
-        private object get_4_RegisterPage_DefaultViewModel(object instance)
+        private object get_6_RegisterPage_DefaultViewModel(object instance)
         {
             var that = (global::CityWars.Pages.RegisterPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_5_RegisterPage_ViewModel(object instance)
+        private object get_7_RegisterPage_ViewModel(object instance)
         {
             var that = (global::CityWars.Pages.RegisterPage)instance;
             return that.ViewModel;
         }
-        private void set_5_RegisterPage_ViewModel(object instance, object Value)
+        private void set_7_RegisterPage_ViewModel(object instance, object Value)
         {
             var that = (global::CityWars.Pages.RegisterPage)instance;
             that.ViewModel = (global::CityWars.ViewModels.RegisterPageViewModel)Value;
         }
-        private object get_6_UserFighterPage_NavigationHelper(object instance)
+        private object get_8_UserFighterPage_NavigationHelper(object instance)
         {
             var that = (global::CityWars.Pages.UserFighterPage)instance;
             return that.NavigationHelper;
         }
-        private object get_7_UserFighterPage_DefaultViewModel(object instance)
+        private object get_9_UserFighterPage_DefaultViewModel(object instance)
         {
             var that = (global::CityWars.Pages.UserFighterPage)instance;
             return that.DefaultViewModel;
@@ -365,52 +387,64 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "CityWars.Pages.AllFightersPage.NavigationHelper":
+                userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.AllFightersPage");
+                xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "CityWars.Common.NavigationHelper");
+                xamlMember.Getter = get_0_AllFightersPage_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "CityWars.Pages.AllFightersPage.DefaultViewModel":
+                userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.AllFightersPage");
+                xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "CityWars.Common.ObservableDictionary");
+                xamlMember.Getter = get_1_AllFightersPage_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
             case "CityWars.Pages.LoginPage.NavigationHelper":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.LoginPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "CityWars.Common.NavigationHelper");
-                xamlMember.Getter = get_0_LoginPage_NavigationHelper;
+                xamlMember.Getter = get_2_LoginPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CityWars.Pages.LoginPage.DefaultViewModel":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.LoginPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "CityWars.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_LoginPage_DefaultViewModel;
+                xamlMember.Getter = get_3_LoginPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CityWars.Pages.LoginPage.ViewModel":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.LoginPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "ViewModel", "CityWars.ViewModels.LoginPageViewModel");
-                xamlMember.Getter = get_2_LoginPage_ViewModel;
-                xamlMember.Setter = set_2_LoginPage_ViewModel;
+                xamlMember.Getter = get_4_LoginPage_ViewModel;
+                xamlMember.Setter = set_4_LoginPage_ViewModel;
                 break;
             case "CityWars.Pages.RegisterPage.NavigationHelper":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.RegisterPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "CityWars.Common.NavigationHelper");
-                xamlMember.Getter = get_3_RegisterPage_NavigationHelper;
+                xamlMember.Getter = get_5_RegisterPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CityWars.Pages.RegisterPage.DefaultViewModel":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.RegisterPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "CityWars.Common.ObservableDictionary");
-                xamlMember.Getter = get_4_RegisterPage_DefaultViewModel;
+                xamlMember.Getter = get_6_RegisterPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CityWars.Pages.RegisterPage.ViewModel":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.RegisterPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "ViewModel", "CityWars.ViewModels.RegisterPageViewModel");
-                xamlMember.Getter = get_5_RegisterPage_ViewModel;
-                xamlMember.Setter = set_5_RegisterPage_ViewModel;
+                xamlMember.Getter = get_7_RegisterPage_ViewModel;
+                xamlMember.Setter = set_7_RegisterPage_ViewModel;
                 break;
             case "CityWars.Pages.UserFighterPage.NavigationHelper":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.UserFighterPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "CityWars.Common.NavigationHelper");
-                xamlMember.Getter = get_6_UserFighterPage_NavigationHelper;
+                xamlMember.Getter = get_8_UserFighterPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CityWars.Pages.UserFighterPage.DefaultViewModel":
                 userType = (global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CityWars.Pages.UserFighterPage");
                 xamlMember = new global::CityWars.CityWars_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "CityWars.Common.ObservableDictionary");
-                xamlMember.Getter = get_7_UserFighterPage_DefaultViewModel;
+                xamlMember.Getter = get_9_UserFighterPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }
@@ -738,7 +772,6 @@ namespace CityWars.CityWars_WindowsPhone_XamlTypeInfo
         }
     }
 }
-
 
 
 

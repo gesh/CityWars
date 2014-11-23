@@ -10,6 +10,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -107,7 +108,7 @@ namespace CityWars.Pages
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
 
@@ -127,6 +128,7 @@ namespace CityWars.Pages
             //this.Message = result["Message"].ToString();
 
             //this.FighterName.Text = result["FighterName"].ToString();
+           
             this.FighterName.Text = fighterToShow.FighterName;
             this.FighterType.Text = fighterToShow.FighterType;
             if (fighterToShow.FighterType == "Nacepenata Batka")
@@ -152,8 +154,20 @@ namespace CityWars.Pages
 
             this.Damage.Text = string.Format("Damage: {0}-{1}",minDmg.ToString(),maxDmg.ToString());
             this.Armor.Text = string.Format("Armor: {0}",fighterToShow.Armor.ToString());
-            this.City.Text = string.Format("City: {0}",fighterToShow.City);
+            //this.City.Text = string.Format("City: {0}",fighterToShow.City);
             this.Money.Text = string.Format("Money: {0}",fighterToShow.Money.ToString());
+
+            if (fighterToShow.Message.Length > 1)
+            {
+                MessageDialog msgbox = new MessageDialog(fighterToShow.Message);
+                await msgbox.ShowAsync();
+
+                ParseQuery<ParseObject> query = ParseObject.GetQuery("Fighters");
+                ParseObject fighter = await query.GetAsync(CurrentFighter.FighterId);
+
+                fighter["Message"] = string.Empty;
+                await fighter.SaveAsync();
+            }
 
         }
 
@@ -207,6 +221,11 @@ namespace CityWars.Pages
                 }
             }
 
+        }
+
+        private void onFightButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AllFightersPage), CurrentFighter.FighterId);
         }
     }
 }

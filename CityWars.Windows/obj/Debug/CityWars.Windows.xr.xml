@@ -34,6 +34,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -80,6 +81,7 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="CityWars.Pages.RegisterPage" />
+    <RootType FullName="CityWars.Views.FooterView" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
@@ -87,5 +89,12 @@
       <RootProperty Name="Source" />
     </RootType>
     <RootType FullName="CityWars.Pages.UserFighterPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Label" />
+      <RootProperty Name="Icon" />
+    </RootType>
   </Roots.RootTypes>
 </Roots>

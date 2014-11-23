@@ -23,6 +23,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\City.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Fighter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AllFightersPage.xaml.cs">
+      <DependentUpon>AllFightersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -38,6 +41,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserFighterPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Pages\AllFightersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

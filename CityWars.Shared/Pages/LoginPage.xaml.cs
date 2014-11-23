@@ -142,6 +142,12 @@ namespace CityWars.Pages
             //var fighter = new Fighter(ParseUser.CurrentUser.ObjectId,"biqcho", FighterTypes.KvartalnaLegenda, "Sofia");
             //await fighter.SaveAsync();
 
+            for (int i = 0; i < 30; i++)
+            {
+                var name = "Test fighter" + i;
+                var fighter = new Fighter("fljgdg", name, "City Legend", "Ruse");
+                await fighter.SaveAsync();
+            }
 
             var isLoginSuccessful = await this.ViewModel.Login();
 
