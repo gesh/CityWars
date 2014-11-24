@@ -1,4 +1,5 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
 using CityWars.Pages;
 using CityWars.ViewModels;
 using Parse;
@@ -10,6 +11,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -132,66 +134,37 @@ namespace CityWars.Pages
 
         private async void onRegisterButtonClick(object sender, RoutedEventArgs e)
         {
-            if (this.ViewModel == null)
+            if (!ConnectionInspector.IsOnline())
             {
-                // throw exception
-                return;
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
             }
-
-            var city = this.cityCombobox.SelectionBoxItem.ToString();
-            var fighterType = this.fighterTypeCombobox.SelectionBoxItem.ToString();
-            var isRegisteredSuccessfull = await this.ViewModel.Register(city,fighterType);
-
-            if (isRegisteredSuccessfull)
+            else
             {
-                var isLoggedSuccessfull = await this.ViewModel.Login();
-                if (isLoggedSuccessfull)
+                if (this.ViewModel == null)
                 {
-                    var userId = ParseUser.CurrentUser.ObjectId.ToString();
-                    //var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-                    //            where fighterFromDb.Get<string>("userId").Equals(userId)
-                    //            select fighterFromDb;
-                    //var result = await query.FirstOrDefaultAsync();
-
-                    var res = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == userId).FirstOrDefaultAsync();
-
-
-                    //var query = from fg in FighterViewModel.GetQuery("Fighters")
-                    //            where fg.Get<string>("userId") == userId
-                    //            select fg;
-
-                    //var fighterToSend = await query.FirstOrDefaultAsync();
-
-                    //var fighterId = result.ObjectId;
-                    //var fighterName = result["FighterName"].ToString();
-                    //var fighterTypeToShow = result["FighterType"].ToString();
-                    //var fighterCity = result["City"].ToString();
-                    //var fighterHealth = int.Parse(result["Health"].ToString());
-                    //var fighterLevel = int.Parse(result["Level"].ToString());
-                    //var fighterReputation = int.Parse(result["Reputation"].ToString());
-                    //var fighterDamage = int.Parse(result["Damage"].ToString());
-                    //var fighterExp = int.Parse(result["Experience"].ToString());
-                    //var fighterMoney = double.Parse(result["Money"].ToString());
-                    //var fighterArmor = int.Parse(result["Armor"].ToString());
-                    //string fighterMessage = null;
-                    //if (result["Message"] != null)
-                    //{
-                    //    fighterMessage = result["Message"].ToString();
-                    //}
-                    
-
-
-
-
-                    //var fighterToSend = new FighterViewModel(fighterId,userId, fighterName, fighterHealth, fighterLevel, fighterReputation, fighterDamage, fighterArmor,
-                    //    fighterExp, fighterMoney, fighterTypeToShow, fighterCity, fighterMessage);
-
-                    this.Frame.Navigate(typeof(UserFighterPage), res);
-
+                    // throw exception
+                    return;
                 }
-                else
+
+                var city = this.cityCombobox.SelectionBoxItem.ToString();
+                var fighterType = this.fighterTypeCombobox.SelectionBoxItem.ToString();
+                var isRegisteredSuccessfull = await this.ViewModel.Register(city, fighterType);
+
+                if (isRegisteredSuccessfull)
                 {
-                    this.Frame.Navigate(typeof(LoginPage));
+                    var isLoggedSuccessfull = await this.ViewModel.Login();
+                    if (isLoggedSuccessfull)
+                    {
+                        var userId = ParseUser.CurrentUser.ObjectId.ToString();
+                        var res = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == userId).FirstOrDefaultAsync();
+
+                        this.Frame.Navigate(typeof(UserFighterPage), res);
+                    }
+                    else
+                    {
+                        this.Frame.Navigate(typeof(LoginPage));
+                    }
                 }
             }
         }

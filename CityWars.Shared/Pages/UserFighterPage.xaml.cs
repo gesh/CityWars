@@ -1,4 +1,5 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
 using CityWars.Models;
 using CityWars.ViewModels;
 using Parse;
@@ -7,9 +8,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Sensors;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -19,6 +22,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
+using ShakeGestures;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -32,6 +37,8 @@ namespace CityWars.Pages
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
+
+
         private FighterViewModel CurrentFighter { get; set; }
 
         public UserFighterPage()
@@ -41,6 +48,15 @@ namespace CityWars.Pages
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+        }
+
+        async private void Shaken(object sender, AccelerometerShakenEventArgs e)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                var b = 5;
+            });
         }
 
         /// <summary>
@@ -110,33 +126,26 @@ namespace CityWars.Pages
         /// handlers that cannot cancel the navigation request.</param>
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //var fighterToShow = new FighterViewModel();
+            if (!ConnectionInspector.IsOnline())
+            {
+                var c = 3;
+            }
+
             this.navigationHelper.OnNavigatedTo(e);
-            //if (e.Parameter != null)
-            //{
-            //    fighterToShow = e.Parameter as FighterViewModel;
-            //}
+            this.LoadFighterDetails();
 
 
-            var fighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == ParseUser.CurrentUser.ObjectId).FirstOrDefaultAsync();
+
+        }
+
+
+
+        private async void LoadFighterDetails()
+        {
+             var fighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == ParseUser.CurrentUser.ObjectId).FirstOrDefaultAsync();
             
             //var CurrentFighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == ParseUser.CurrentUser.ObjectId).FirstAsync();
-
-
-
-            //var msg = obj["Message"];
-            //FighterViewModel obj = await query.FirstAsync() as FighterViewModel;
-           // CurrentFighter = obj;
-            //this.FighterName = result["FighterName"].ToString();
-            //this.Health = (double)result["Health"];
-            //this.Level = (int)result["Level"];
-            //this.Reputation = (double)result["Reputation"];
-            //this.City = result["City"].ToString();
-            //this.FighterType = result["FighterType"].ToString();
-            //this.Message = result["Message"].ToString();
-
-            //this.FighterName.Text = result["FighterName"].ToString();
-
+            
             this.FighterName.Text = fighter.FighterName;
             this.FighterType.Text = fighter.FighterType;
             if (fighter.FighterType == "Nacepenata Batka")
@@ -173,8 +182,9 @@ namespace CityWars.Pages
             }
 
             await fighter.SaveAsync();
-
         }
+
+
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
@@ -185,7 +195,20 @@ namespace CityWars.Pages
 
         private async void onRegenerateButtonClick(object sender, RoutedEventArgs e)
         {
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.RegenerateFighter();
+            }
 
+        }
+
+        private async void RegenerateFighter()
+        {
             var fighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == ParseUser.CurrentUser.ObjectId).FirstOrDefaultAsync();
             var fighterCurrentMoney = int.Parse(fighter.Money.ToString());
 
@@ -206,7 +229,7 @@ namespace CityWars.Pages
                     //CurrentFighter.Health = 100;
                 }
             }
-            else if (fighter.Health <= 0) 
+            else if (fighter.Health <= 0)
             {
                 if (fighterCurrentMoney < 30)
                 {
@@ -229,21 +252,44 @@ namespace CityWars.Pages
             await fighter.SaveAsync();
         }
 
-        private void onFightButtonClick(object sender, RoutedEventArgs e)
+        private async void onFightButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AllFightersPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(AllFightersPage));
+            }
         }
 
-        private void onTopCitiesButtonClick(object sender, RoutedEventArgs e)
+        private async void onTopCitiesButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(TopCitiesPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(TopCitiesPage));
+            }
         }
 
-        private void onImageHolding(object sender, HoldingRoutedEventArgs e)
+        private async void onImageHolding(object sender, HoldingRoutedEventArgs e)
         {
-            this.Image.Width = 10;
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(UserAchievements));
+            }
         }
 
-        //public string CurrentFighterId { get; set; }
     }
 }

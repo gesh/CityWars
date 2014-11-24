@@ -29,6 +29,15 @@
 
 
         </DataTemplate>
+
+        <DataTemplate x:Key="CityTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontSize="36" />
+                <TextBlock Text="{Binding Score}" FontSize="36" Margin="20 0 0 5" HorizontalAlignment="Right" TextAlignment="Right"/>
+                <TextBlock Text=" Points" FontSize="36" />
+            </StackPanel>
+
+        </DataTemplate>
     </Application.Resources>
 </Application>
 

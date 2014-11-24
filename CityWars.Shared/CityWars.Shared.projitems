@@ -12,6 +12,7 @@
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)APIs\ConnectionInspector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -38,14 +39,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TopCitiesPage.xaml.cs">
       <DependentUpon>TopCitiesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\UserAchievements.xaml.cs">
+      <DependentUpon>UserAchievements.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\UserFighterPage.xaml.cs">
       <DependentUpon>UserFighterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllFightersPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CityViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FighterViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OpponentDetailsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RegisterPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TopCitiesPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserFighterPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Pages\TopCitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Pages\UserAchievements.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

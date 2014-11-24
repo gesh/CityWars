@@ -1,4 +1,7 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
+using CityWars.ViewModels;
+using Parse;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +10,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -96,9 +100,20 @@ namespace CityWars.Pages
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            var currentUserId = ParseUser.CurrentUser.ObjectId;
+            var currentUserFighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == currentUserId).FirstOrDefaultAsync();
+
+            var points =int.Parse(localSettings.Values["wins"].ToString()) * 10;
+            this.Points.Text = points.ToString() + " Points";
+            this.City.Text = currentUserFighter.City;
+
+            localSettings.Values["wins"] = int.Parse(localSettings.Values["wins"].ToString()) + 1;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -108,9 +123,16 @@ namespace CityWars.Pages
 
         #endregion
 
-        private void onBackButtonClick(object sender, RoutedEventArgs e)
+        private async void onBackButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserFighterPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            {
+                this.Frame.Navigate(typeof(UserFighterPage));
+            }
         }
 
     }

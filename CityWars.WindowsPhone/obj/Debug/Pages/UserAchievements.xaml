@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="CityWars.Pages.UserAchievements"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CityWars"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Your Achievements" FontSize="28" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" />
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0" HorizontalAlignment="Center">
+            <TextBlock Text="Your Win:" FontSize="36" TextAlignment="Center"/>
+            <TextBlock Name="Points" Text="0 Points" FontSize="46" TextAlignment="Center"/>
+            <TextBlock Text="For" FontSize="36" TextAlignment="Center"/>
+            <TextBlock Name="City" Text="City" FontSize="46" TextAlignment="Center"/>
+            <Button x:ConnectionId='1' Content="Back" Height="50" HorizontalAlignment="Center"                          />
+        </StackPanel>
+    </Grid>
+</Page>
+

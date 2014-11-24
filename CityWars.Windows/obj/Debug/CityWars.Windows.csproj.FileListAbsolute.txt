@@ -76,6 +76,14 @@ C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\TopCiti
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\TopCitiesPage.xbf
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\TopCitiesPage.xaml
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\TopCitiesPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserAchievements.g.i.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserAchievements.g.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserAchievements.xaml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Pages\UserAchievements.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Pages\UserAchievements.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\ShakeGestures.dll
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\bin\Debug\Newtonsoft.Json.xml
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\layout.resfiles.intermediate
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.Windows\obj\Debug\Microsoft.Practices.ServiceLocation\Resources.resfiles

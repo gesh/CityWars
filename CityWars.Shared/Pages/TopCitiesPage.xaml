@@ -29,7 +29,9 @@
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-
+            <ListView ItemsSource="{Binding AllCities}"
+                      ItemTemplate="{StaticResource CityTemplate}"
+                      SelectionMode="Single"/>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
             <AppBarButton Label="My Fighter" Icon="Contact" Click="onMyFighterButtonClick"/>

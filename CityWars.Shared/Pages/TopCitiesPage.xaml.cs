@@ -1,4 +1,6 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
+using CityWars.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -29,12 +32,20 @@ namespace CityWars.Pages
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
         public TopCitiesPage()
+            : this(new TopCitiesPageViewModel())
+        {
+
+        }
+
+        public TopCitiesPage(TopCitiesPageViewModel viewModel)
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            this.DataContext = viewModel;
         }
 
         /// <summary>
@@ -99,6 +110,7 @@ namespace CityWars.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -108,19 +120,31 @@ namespace CityWars.Pages
 
         #endregion
 
-        private void onMyFighterButtonClick(object sender, RoutedEventArgs e)
+        private async void onMyFighterButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserFighterPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(UserFighterPage));
+            }
         }
 
-        private void onFightersButtonClick(object sender, RoutedEventArgs e)
+        private async void onFightersButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AllFightersPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(AllFightersPage));
+            }
         }
 
-        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

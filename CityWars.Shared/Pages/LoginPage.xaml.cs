@@ -1,4 +1,5 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
 using CityWars.Enums;
 using CityWars.Models;
 using CityWars.ViewModels;
@@ -13,6 +14,7 @@ using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -126,84 +128,34 @@ namespace CityWars.Pages
 
         private async void onLoginButtonClick(object sender, RoutedEventArgs e)
         {
-            if (this.ViewModel == null)
+            if (!ConnectionInspector.IsOnline())
             {
-                // throw exception
-                return;
-            }
-
-            
-            //var user = new User("pesho", "pesho", fighter);
-            //var user = new ParseUser();
-            //user.Username = "4444";
-            //user.Password = "4444";
-            //await user.SignUpAsync();
-
-            //var fighter = new Fighter(ParseUser.CurrentUser.ObjectId,"biqcho", FighterTypes.KvartalnaLegenda, "Sofia");
-            //await fighter.SaveAsync();
-
-            //for (int i = 0; i < 30; i++)
-            //{
-            //    var name = "Test fighter" + i;
-            //    var fighter = new Fighter("fljgdg", name, "City Legend", "Ruse");
-            //    await fighter.SaveAsync();
-            //}
-
-            var isLoginSuccessful = await this.ViewModel.Login();
-
-            // get current user fighter
-            //var userId = ParseUser.CurrentUser.ObjectId.ToString();
-            //var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-            //            where fighterFromDb.Get<string>("userId") == userId
-            //            select fighterFromDb;
-            //var result = await query.FirstOrDefaultAsync();
-            // result ["Damage"] - to get the fighter damage
-
-            if (isLoginSuccessful)
-            {
-                this.LoginResponseMessage.Text = "Login Successful";
-
-                var userId = ParseUser.CurrentUser.ObjectId.ToString();
-                //var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-                //            where fighterFromDb.Get<string>("userId").Equals(userId)
-                //            select fighterFromDb;
-                //var result = await query.FirstOrDefaultAsync();
-
-                //var query = from fg in FighterViewModel.GetQuery("Fighters")
-                //            where fg.Get<string>("userId") == userId
-                //            select fg;
-
-                var fighterToSend = await new ParseQuery<FighterViewModel>().Where(f => f.Get<string>("userId") == userId).FirstOrDefaultAsync();
-
-
-                //var fighterId = result.ObjectId;
-                //var fighterName = result["FighterName"].ToString();
-                //var fighterTypeToShow = result["FighterType"].ToString();
-                //var fighterCity = result["City"].ToString();
-                //var fighterHealth = int.Parse(result["Health"].ToString());
-                //var fighterLevel = int.Parse(result["Level"].ToString());
-                //var fighterReputation = int.Parse(result["Reputation"].ToString());
-                //var fighterDamage = int.Parse(result["Damage"].ToString());
-                //var fighterExp = int.Parse(result["Experience"].ToString());
-                //var fighterMoney = double.Parse(result["Money"].ToString());
-                //var fighterArmor = int.Parse(result["Armor"].ToString());
-                //string fighterMessage = null;
-                //if (result["Message"] != null)
-                //{
-                //    fighterMessage = result["Message"].ToString();
-                //}
-
-
-                //var fighterToSend = new FighterViewModel(fighterId, userId, fighterName, fighterHealth, fighterLevel, fighterReputation, fighterDamage, fighterArmor,
-                //    fighterExp, fighterMoney, fighterTypeToShow, fighterCity, fighterMessage);
-                //var send = (FighterViewModel)fighterToSend;
-                this.Frame.Navigate(typeof(UserFighterPage), fighterToSend);
-                //this.Frame.Navigate(typeof(RegisterPage), new RegisterPageViewModel());
-                //this.Frame.Navigate(typeof(UserFighterPage), new UserFighterPageViewModel());
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
             }
             else
             {
-                this.LoginResponseMessage.Text = "Login Failed";
+                if (this.ViewModel == null)
+                {
+                    return;
+                }
+
+                var isLoginSuccessful = await this.ViewModel.Login();
+
+
+                if (isLoginSuccessful)
+                {
+                    this.LoginResponseMessage.Text = "Login Successful";
+
+                    var userId = ParseUser.CurrentUser.ObjectId.ToString();
+                    var fighterToSend = await new ParseQuery<FighterViewModel>().Where(f => f.Get<string>("userId") == userId).FirstOrDefaultAsync();
+
+                    this.Frame.Navigate(typeof(UserFighterPage), fighterToSend);
+                }
+                else
+                {
+                    this.LoginResponseMessage.Text = "Login Failed";
+                }
             }
         }
 
@@ -220,9 +172,17 @@ namespace CityWars.Pages
             }
         }
 
-        private void onRegisterButtonClicked(object sender, RoutedEventArgs e)
+        private async void onRegisterButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegisterPage), new RegisterPageViewModel());
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(RegisterPage), new RegisterPageViewModel());
+            }
         }
     }
 }

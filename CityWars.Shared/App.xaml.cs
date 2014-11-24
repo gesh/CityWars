@@ -46,15 +46,16 @@ namespace CityWars
 
             ParseClient.Initialize("iqHMixUbAbqGfRDaGLZhBCQ8CkdKpmmnURlPGs8m", "BLi1Pf6Puqfu7fyWZjpoIVUBoSPo44yyNJcGbk1a");
             ParseObject.RegisterSubclass<FighterViewModel>();
+            ParseObject.RegisterSubclass<CityViewModel>();
 
-            //var bitkadjiqta = new Fighter("bitkadjiqta2", FighterTypes.KvartalnaLegenda, "Sofia");
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            //var kiretoUser = new User("kireto", "kireto", bitkadjiqta);
+            if (localSettings.Values["wins"] == null)
+            {
+                localSettings.Values["wins"] = 0;
+            }
+           
 
-            //var sofia = new City("Sofia", 0);
-            //sofia.SaveAsync();
-           // bitkadjiqta.SaveAsync();
-            //kiretoUser.SignUpAsync();
         }
 
         /// <summary>

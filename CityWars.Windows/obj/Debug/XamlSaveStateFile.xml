@@ -1,11 +1,13 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\gesh\desktop\citywars\citywars\citywars.windows\obj\debug\intermediatexaml\citywars.windows.exe" HashGuid="b28b30b7-01a3-a0a5-8068-632af1304cd5" />
+    <LocalAssembly PathName="c:\users\gesh\desktop\citywars\citywars\citywars.windows\obj\debug\intermediatexaml\citywars.windows.exe" HashGuid="35f9a767-3476-4c24-d078-b7c6262c88da" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.dll" HashGuid="da07be64-1093-25cd-c992-377d44b6dd02" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.extras.dll" HashGuid="28bb2089-c7a4-73bb-7a72-1ea8b02698b0" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\packages\mvvmlightlibs.5.0.2.0\lib\netcore451\galasoft.mvvmlight.platform.dll" HashGuid="54c1f1ed-b921-337f-8ad6-f2d8c553df06" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
+    <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\packages\newtonsoft.json.6.0.6\lib\netcore45\newtonsoft.json.dll" HashGuid="63116148-54c9-33e9-c28b-753c429e654f" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\citywars\libraries\parse.dll" HashGuid="4aa23e2f-e4a0-423c-41b6-d3a8bf370a51" />
     <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\citywars\libraries\parse.winrt.dll" HashGuid="686a4480-5b84-291b-04f2-3ed7db81ad6f" />
+    <ReferenceAssembly PathName="c:\users\gesh\desktop\citywars\citywars\libraries\shakegestures.dll" HashGuid="4941181b-af8f-0107-7eaa-333921f532a6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

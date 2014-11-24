@@ -29,9 +29,9 @@
         <!--TODO: Content should be placed within the following grid-->
         <StackPanel Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0" HorizontalAlignment="Center">
             <TextBlock Text="Your Win:" FontSize="36" TextAlignment="Center"/>
-            <TextBlock Name="Points" Text="100 Points" FontSize="46" TextAlignment="Center"/>
+            <TextBlock Name="Points" Text="0 Points" FontSize="46" TextAlignment="Center"/>
             <TextBlock Text="For" FontSize="36" TextAlignment="Center"/>
-            <TextBlock Name="City" Text="Sofia" FontSize="46" TextAlignment="Center"/>
+            <TextBlock Name="City" Text="City" FontSize="46" TextAlignment="Center"/>
             <Button Content="Back" Height="50" HorizontalAlignment="Center" Click="onBackButtonClick"/>
         </StackPanel>
     </Grid>

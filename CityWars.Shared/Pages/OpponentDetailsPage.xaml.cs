@@ -1,17 +1,24 @@
-﻿using CityWars.Common;
+﻿using CityWars.APIs;
+using CityWars.Common;
 using CityWars.ViewModels;
+using Newtonsoft.Json;
 using Parse;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Windows.Data.Json;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI.Popups;
 //using Windows.Services.Maps;
+
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -124,9 +131,17 @@ namespace CityWars.Pages
 
         #endregion
 
-        private void onFightButtonClick(object sender, RoutedEventArgs e)
+        private async void onFightButtonClick(object sender, RoutedEventArgs e)
         {
-            this.PerformFight();
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.PerformFight();
+            }
         }
 
 
@@ -149,15 +164,16 @@ namespace CityWars.Pages
             var currentUserFighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == currentUserId).FirstOrDefaultAsync();
 
             var opponentFighter = this.ViewModel;
-
-            //var currentUserGPSLocationCity = await this.getCurrentCityName();
+ #if WINDOWS_PHONE_APP
+            var currentUserGPSLocationCity = await this.getCurrentCityName();
 
             // cursed! damage decrease on opponent teritory
-            //if (currentUserGPSLocationCity.ToLower() == opponentFighter.City.ToLower())
-            //{
-            //    currentUserFighter.Damage = 0.9 * currentUserFighter.Damage;
-            //    currentUserFighter.Armor = 0.9 * currentUserFighter.Armor;
-            //}
+            if (currentUserGPSLocationCity.ToLower() == opponentFighter.City.ToLower())
+            {
+                currentUserFighter.Damage = 0.9 * currentUserFighter.Damage;
+                currentUserFighter.Armor = 0.9 * currentUserFighter.Armor;
+            }
+#endif
             if (currentUserFighter.Health < 100 || opponentFighter.Health < 100)
             {
                 this.FightMessage.Text = "Both fighters must be regenerated!";
@@ -272,8 +288,10 @@ namespace CityWars.Pages
 
                     // update cities db
                     await currentUserCityFromDb.SaveAsync();
-
                     this.FightMessage.Text = "Damn!\nYou lose!";
+
+                    Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                    localSettings.Values["wins"] = int.Parse(localSettings.Values["wins"].ToString()) + 1;
                 }
 
                 // both fighters gain exp and money
@@ -289,47 +307,75 @@ namespace CityWars.Pages
             }
         }
 
-        private void onMyFighterButtonClick(object sender, RoutedEventArgs e)
+        private async void onMyFighterButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(UserFighterPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(UserFighterPage));
+            }
         }
 
-        private void onFightersButtonClick(object sender, RoutedEventArgs e)
+        private async void onFightersButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AllFightersPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(AllFightersPage));
+            }
         }
 
-        private void onTopCitiesButtonClick(object sender, RoutedEventArgs e)
+        private async void onTopCitiesButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(TopCitiesPage));
+            if (!ConnectionInspector.IsOnline())
+            {
+                MessageDialog msgbox = new MessageDialog("Check Your Internet Connection!");
+                await msgbox.ShowAsync();
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(TopCitiesPage));
+            }
         }
 
  
 
-        //private async Task<string> getCurrentCityName()
-        //{
-        //    var geolocator = new Geolocator();
-        //    geolocator.DesiredAccuracyInMeters = 100;
-        //    Geoposition position = await geolocator.GetGeopositionAsync();
+        private async Task<string> getCurrentCityName()
+        {
+            var geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 100;
+            Geoposition position = await geolocator.GetGeopositionAsync();
 
-           
-        //    BasicGeoposition myLocation = new BasicGeoposition
-        //    {
-        //        Longitude = position.Coordinate.Longitude,
-        //        Latitude = position.Coordinate.Latitude
-        //    };
-        //    Geopoint pointToReverseGeocode = new Geopoint(myLocation);
+            // reverse geocoding
+            BasicGeoposition myLocation = new BasicGeoposition
+            {
+                Longitude = position.Coordinate.Longitude,
+                Latitude = position.Coordinate.Latitude
+            };
+            Geopoint pointToReverseGeocode = new Geopoint(myLocation);
 
-        //    MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
+            //MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
 
-        //    // here also it should be checked if there result isn't null and what to do in such a case
-        //    string city = "NO GPS";
-        //    if (result != null)
-        //    {
-        //        city = result.Locations[0].Address.Town;
-        //    }
+            // here also it should be checked if there result isn't null and what to do in such a case
+            string town = "";
+            //if (result.Locations[0].Address.Town != null)
+            //{
+            //    town = result.Locations[0].Address.Town;
+            //}
+            var b = 5;
 
-        //    return city;
-        //}
+
+            return town;
+ 
+
+        }
     }
 }
