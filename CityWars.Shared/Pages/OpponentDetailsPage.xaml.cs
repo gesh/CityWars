@@ -228,13 +228,15 @@ namespace CityWars.Pages
                     }
 
                     // add points to winner's city
-                    var query = from city in ParseObject.GetQuery("Cities")
-                                where city.Get<string>("Name") == currentUserFighter.City
-                                select city;
-                    var currentUserCityFromDb = await query.FirstOrDefaultAsync();
-                    if (currentUserCityFromDb != null)
+                    //var query = from city in ParseObject.GetQuery("Cities")
+                    //            where city.Get<string>("Name") == currentUserFighter.City
+                    //            select city;
+                    //var currentUserCityFromDb = await query.FirstOrDefaultAsync();
+                    var curCity = await new ParseQuery<CityViewModel>().Where(c => c.Name == currentUserFighter.City).FirstAsync();
+                    if (curCity != null)
                     {
-                        currentUserCityFromDb["Score"] = int.Parse(currentUserCityFromDb["Score"].ToString()) + 10;
+                        curCity.Score += 10;
+                        //currentUserCityFromDb["Score"] = int.Parse(currentUserCityFromDb["Score"].ToString()) + 10;
                     }
 
                     // messages for both fighters
@@ -242,7 +244,7 @@ namespace CityWars.Pages
                     opponentFighter.Message = string.Format("Damn! You were beaten by {0} - the {1} from {2}", currentUserFighter.FighterName, currentUserFighter.FighterType, currentUserFighter.City);
 
                     // update  cities db
-                    await currentUserCityFromDb.SaveAsync();
+                    await curCity.SaveAsync();
 
                     this.FightMessage.Text = "Congrats!\nYou win!";
                 }
@@ -273,13 +275,15 @@ namespace CityWars.Pages
                     }
 
                     // add points to winner's city
-                    var query = from city in ParseObject.GetQuery("Cities")
-                                where city.Get<string>("Name") == opponentFighter.City
-                                select city;
-                    var currentUserCityFromDb = await query.FirstOrDefaultAsync();
-                    if (currentUserCityFromDb != null)
+                    var curCity = await new ParseQuery<CityViewModel>().Where(c => c.Name == opponentFighter.City).FirstAsync();
+                    //var query = from city in ParseObject.GetQuery("Cities")
+                    //            where city.Get<string>("Name") == opponentFighter.City
+                    //            select city;
+                    //var currentUserCityFromDb = await query.FirstOrDefaultAsync();
+                    if (curCity != null)
                     {
-                        currentUserCityFromDb["Score"] = int.Parse(currentUserCityFromDb["Score"].ToString()) + 10;
+                        curCity.Score += 10;
+                        //currentUserCityFromDb["Score"] = int.Parse(currentUserCityFromDb["Score"].ToString()) + 10;
                     }
 
                     // messages for both fighters
@@ -287,7 +291,7 @@ namespace CityWars.Pages
                     currentUserFighter.Message = string.Format("Damn! You were beaten by {0} - the {1} from {2}", opponentFighter.FighterName, opponentFighter.FighterType, opponentFighter.City);
 
                     // update cities db
-                    await currentUserCityFromDb.SaveAsync();
+                    await curCity.SaveAsync();
                     this.FightMessage.Text = "Damn!\nYou lose!";
 
                     Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;

@@ -45,8 +45,9 @@
                 <TextBlock Text="City: " FontSize="26" TextAlignment="Right" />
                 <TextBlock x:Name="City" Text="{Binding City}" FontSize="26" TextAlignment="Left"/>
             </StackPanel>
+            <Button Name="fightButton" Content="Fight!" Click="onFightButtonClick" Width="150" HorizontalAlignment="Center"
+                    />
             
-            <Button Name="fightButton" Content="Fight!" Click="onFightButtonClick" Width="150" HorizontalAlignment="Center"/>
             <TextBlock x:Name="FightMessage" Text="Are you scared ?" FontSize="20" TextAlignment="Center" Margin="0 10 0 0"/>
 
         </StackPanel>

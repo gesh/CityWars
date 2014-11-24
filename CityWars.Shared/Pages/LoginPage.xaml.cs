@@ -184,5 +184,12 @@ namespace CityWars.Pages
                 this.Frame.Navigate(typeof(RegisterPage), new RegisterPageViewModel());
             }
         }
+
+        //private void Test_Click(object sender, RoutedEventArgs e)
+        //{
+        //    showStoryBoard.Begin();
+        //    showStoryBoard.Stop();
+        //    showStoryBoard.Begin();
+        //}
     }
 }
