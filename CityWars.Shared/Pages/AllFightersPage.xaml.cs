@@ -32,13 +32,20 @@ namespace CityWars.Pages
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private string CurrentFighterId { get; set; }
 
-        public AllFightersPage()
+        public AllFightersPage() : this(new AllFightersPageViewModel())
+        {
+
+        }
+
+        public AllFightersPage(AllFightersPageViewModel viewModel)
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            this.DataContext = viewModel;
         }
 
         /// <summary>
@@ -100,14 +107,17 @@ namespace CityWars.Pages
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
 
-            this.CurrentFighterId = e.Parameter.ToString();
+            //if (e.Parameter != null)
+            //{
+            //    var user
+            //    this.CurrentFighterId = e.Parameter.ToString();
+            //}
 
-            var allFighters = this.LoadFighters();
-            var b = 5;
+            //this.AllFighters = await this.LoadFighters();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -118,49 +128,30 @@ namespace CityWars.Pages
 
         private async Task<IEnumerable<FighterViewModel>> LoadFighters()
         {
-            ParseQuery<ParseObject> query = ParseObject.GetQuery("Fighters");
-            ParseObject currentFighter = await query.GetAsync(CurrentFighterId);
-
-            var currentFighterLocation = currentFighter.Get<string>("City");
-
-            var secondQuery = from figh in ParseObject.GetQuery("Fighters")
-                        where figh.Get<string>("City") != currentFighterLocation
-                        select figh;
-            IEnumerable<ParseObject> results = await secondQuery.FindAsync();
-            var allFightersFromDb = results.ToList();
-            //var fighters = new ParseQuery<ParseObject>().Where(f => f["City"] != currentFighterLocation).FindAsync().Result.ToList();
-            var returnFighters = new List<FighterViewModel>();
-
-
-            for (int i = 0; i < allFightersFromDb.Count; i++)
-            {
-
-                var fighterId = allFightersFromDb[i].ObjectId;
-                var fighterName = allFightersFromDb[i]["FighterName"].ToString();
-                var fighterTypeToShow = allFightersFromDb[i]["FighterType"].ToString();
-                var fighterCity = allFightersFromDb[i]["City"].ToString();
-                var fighterHealth = int.Parse(allFightersFromDb[i]["Health"].ToString());
-                var fighterLevel = int.Parse(allFightersFromDb[i]["Level"].ToString());
-                var fighterReputation = int.Parse(allFightersFromDb[i]["Reputation"].ToString());
-                var fighterDamage = int.Parse(allFightersFromDb[i]["Damage"].ToString());
-                var fighterExp = int.Parse(allFightersFromDb[i]["Experience"].ToString());
-                var fighterMoney = double.Parse(allFightersFromDb[i]["Money"].ToString());
-                var fighterArmor = int.Parse(allFightersFromDb[i]["Armor"].ToString());
-                string fighterMessage = null;
-                if (allFightersFromDb[i]["Message"] != null)
-                {
-                    fighterMessage = allFightersFromDb[i]["Message"].ToString();
-                }
-
-                var fighterToAdd = new FighterViewModel(fighterId, ParseUser.CurrentUser.ObjectId, fighterName, fighterHealth, fighterLevel, fighterReputation, fighterDamage, fighterArmor,
-                    fighterExp, fighterMoney, fighterTypeToShow, fighterCity, fighterMessage);
-
-                returnFighters.Add(fighterToAdd);
-            }
-            return returnFighters;
+            var result = await new ParseQuery<FighterViewModel>().FindAsync();
+            return result;
         }
 
 
         #endregion
+
+        private void onAllFightersListViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var fightersListView = sender as ListView;
+            var selectedItem = fightersListView.SelectedItem;
+            this.Frame.Navigate(typeof(OpponentDetailsPage), selectedItem);
+        }
+
+        private void onMyFighterButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(UserFighterPage));
+        }
+
+        private void onTopCitiesButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TopCitiesPage));
+        }
+
+
     }
 }

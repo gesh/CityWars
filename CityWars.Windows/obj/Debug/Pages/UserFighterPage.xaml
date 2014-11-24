@@ -1,4 +1,4 @@
-﻿<Page xmlns:Views="using:CityWars.Views" 
+﻿<Page
     x:Class="CityWars.Pages.UserFighterPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -25,7 +25,7 @@
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock Text="My Fighter" Margin="0,-6.5,-0.167,10" FontSize="26"/>
-            <Button x:ConnectionId='2' Content="Sign Out" HorizontalAlignment="Left" Margin="253,-50,0,0" VerticalAlignment="Top"
+            <Button x:ConnectionId='4' Content="Sign Out" HorizontalAlignment="Left" Margin="253,-50,0,0" VerticalAlignment="Top"
                                                 />
         </StackPanel>
 
@@ -47,9 +47,13 @@
             <TextBlock Name="Armor" Text="Armor: 15" TextAlignment="Center" FontSize="20" />
             <TextBlock Name="Money" Text="Money: 200" FontSize="20" TextAlignment="Center"/>
             <TextBlock Name="RegeneratedMessage" FontSize="20" TextAlignment="Center" Text="..." />
-            <Button x:ConnectionId='1' Name="RegenerateHpButton"                                  Content="Regenerate" Width="200" HorizontalAlignment="Center"/>
+            <Button x:ConnectionId='3' Name="RegenerateHpButton"                                  Content="Regenerate" Width="200" HorizontalAlignment="Center"/>
         </StackPanel>
-        <Views:FooterView Grid.Row="2" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <AppBarButton Label="My Fighter" Icon="Contact" />
+            <AppBarButton x:ConnectionId='1' Label="Fighters" Icon="People"                            />
+            <AppBarButton x:ConnectionId='2' Label="Top Cities" Icon="Favorite"                               />
+        </StackPanel>
     </Grid>
 </Page>
 

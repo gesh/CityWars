@@ -1,4 +1,6 @@
 Images\fighter.png
+Images\fighter2.png
+Images\fighter-big.png
 Assets\Logo.scale-240.png
 Assets\SmallLogo.scale-240.png
 Assets\SplashScreen.scale-240.png
@@ -9,5 +11,7 @@ App.xbf
 CityWars.WindowsPhone.xr.xml
 Pages\AllFightersPage.xbf
 Pages\LoginPage.xbf
+Pages\OpponentDetailsPage.xbf
 Pages\RegisterPage.xbf
+Pages\TopCitiesPage.xbf
 Pages\UserFighterPage.xbf

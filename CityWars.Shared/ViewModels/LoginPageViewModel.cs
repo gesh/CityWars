@@ -20,7 +20,7 @@ namespace CityWars.ViewModels
         {
             try
             {
-                await ParseUser.LogInAsync("kiro", "kiro");
+                await ParseUser.LogInAsync("gosho", "gosho");
                 //await ParseUser.LogInAsync(this.Username, this.Password);
                 return true;
             }

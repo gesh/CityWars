@@ -45,6 +45,7 @@ namespace CityWars
             this.Suspending += this.OnSuspending;
 
             ParseClient.Initialize("iqHMixUbAbqGfRDaGLZhBCQ8CkdKpmmnURlPGs8m", "BLi1Pf6Puqfu7fyWZjpoIVUBoSPo44yyNJcGbk1a");
+            ParseObject.RegisterSubclass<FighterViewModel>();
 
             //var bitkadjiqta = new Fighter("bitkadjiqta2", FighterTypes.KvartalnaLegenda, "Sofia");
 

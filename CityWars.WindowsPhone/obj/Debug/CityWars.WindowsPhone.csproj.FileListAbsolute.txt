@@ -66,3 +66,13 @@ C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\Al
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\AllFightersPage.xaml
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\AllFightersPage.xbf
 C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\Pages\AllFightersPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\OpponentDetailsPage.g.i.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\OpponentDetailsPage.g.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\OpponentDetailsPage.xaml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\OpponentDetailsPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\Pages\OpponentDetailsPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\bin\Debug\Pages\TopCitiesPage.xbf
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\TopCitiesPage.g.i.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\TopCitiesPage.g.cs
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\TopCitiesPage.xaml
+C:\Users\gesh\Desktop\CityWars\CityWars\CityWars.WindowsPhone\obj\Debug\Pages\TopCitiesPage.xbf

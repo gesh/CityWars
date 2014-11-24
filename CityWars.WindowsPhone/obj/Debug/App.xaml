@@ -5,6 +5,30 @@
     xmlns:local="using:CityWars">
     <Application.Resources>
         <x:String x:Key="AppName">City Wars</x:String>
+        <DataTemplate x:Key="FighterTemplate">
+
+            <Grid Margin="0 0 0 2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Images/fighter2.png" Width="75" Height="75" Grid.RowSpan="2" Margin="0 0 0 0"/>
+                <TextBlock Text="{Binding FighterName}" FontSize="30" Grid.Row="0" Width="200" Grid.Column="1" Grid.ColumnSpan="3" Margin="5 0 0 0"></TextBlock>
+                <TextBlock Text="{Binding FighterType}" FontSize="24" Grid.Row="1" Width="200" Grid.Column="1" Grid.ColumnSpan="3" Margin="5 0 0 0"></TextBlock>
+                <TextBlock Text="{Binding Level}" FontSize="36" Grid.Row="0" Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="Level" FontSize="20" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center"></TextBlock>
+
+            </Grid>
+
+
+        </DataTemplate>
     </Application.Resources>
 </Application>
 

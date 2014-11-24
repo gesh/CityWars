@@ -29,6 +29,7 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <DeviceCapability Name="location" />
   </Capabilities>
   <build:Metadata>
     <build:Item Name="SharedGUID" Value="908741f1-a2d1-4cc7-a7c9-ca1295dc1465" />

@@ -42,10 +42,11 @@ namespace CityWars.ViewModels
 
                 // get current user fighter
                 var userId = ParseUser.CurrentUser.ObjectId.ToString();
-                var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-                            where fighterFromDb.Get<string>("userId") == userId
-                            select fighterFromDb;
-                var result = await query.FirstOrDefaultAsync();
+                var currentFighter = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == userId).FirstOrDefaultAsync();
+                //var query = from fighterFromDb in FighterViewModel.GetQuery("Fighters")
+                //            where fighterFromDb.Get<string>("userId") == userId
+                //            select fighterFromDb;
+                //var result = await query.FirstOrDefaultAsync();
 
                 return true;
             }

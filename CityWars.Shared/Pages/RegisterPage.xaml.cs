@@ -148,36 +148,45 @@ namespace CityWars.Pages
                 if (isLoggedSuccessfull)
                 {
                     var userId = ParseUser.CurrentUser.ObjectId.ToString();
-                    var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
-                                where fighterFromDb.Get<string>("userId").Equals(userId)
-                                select fighterFromDb;
-                    var result = await query.FirstOrDefaultAsync();
+                    //var query = from fighterFromDb in ParseObject.GetQuery("Fighters")
+                    //            where fighterFromDb.Get<string>("userId").Equals(userId)
+                    //            select fighterFromDb;
+                    //var result = await query.FirstOrDefaultAsync();
 
-                    var fighterId = result.ObjectId;
-                    var fighterName = result["FighterName"].ToString();
-                    var fighterTypeToShow = result["FighterType"].ToString();
-                    var fighterCity = result["City"].ToString();
-                    var fighterHealth = int.Parse(result["Health"].ToString());
-                    var fighterLevel = int.Parse(result["Level"].ToString());
-                    var fighterReputation = int.Parse(result["Reputation"].ToString());
-                    var fighterDamage = int.Parse(result["Damage"].ToString());
-                    var fighterExp = int.Parse(result["Experience"].ToString());
-                    var fighterMoney = double.Parse(result["Money"].ToString());
-                    var fighterArmor = int.Parse(result["Armor"].ToString());
-                    string fighterMessage = null;
-                    if (result["Message"] != null)
-                    {
-                        fighterMessage = result["Message"].ToString();
-                    }
+                    var res = await new ParseQuery<FighterViewModel>().Where(f => f.UserId == userId).FirstOrDefaultAsync();
+
+
+                    //var query = from fg in FighterViewModel.GetQuery("Fighters")
+                    //            where fg.Get<string>("userId") == userId
+                    //            select fg;
+
+                    //var fighterToSend = await query.FirstOrDefaultAsync();
+
+                    //var fighterId = result.ObjectId;
+                    //var fighterName = result["FighterName"].ToString();
+                    //var fighterTypeToShow = result["FighterType"].ToString();
+                    //var fighterCity = result["City"].ToString();
+                    //var fighterHealth = int.Parse(result["Health"].ToString());
+                    //var fighterLevel = int.Parse(result["Level"].ToString());
+                    //var fighterReputation = int.Parse(result["Reputation"].ToString());
+                    //var fighterDamage = int.Parse(result["Damage"].ToString());
+                    //var fighterExp = int.Parse(result["Experience"].ToString());
+                    //var fighterMoney = double.Parse(result["Money"].ToString());
+                    //var fighterArmor = int.Parse(result["Armor"].ToString());
+                    //string fighterMessage = null;
+                    //if (result["Message"] != null)
+                    //{
+                    //    fighterMessage = result["Message"].ToString();
+                    //}
                     
 
 
 
 
-                    var fighterToSend = new FighterViewModel(fighterId,userId, fighterName, fighterHealth, fighterLevel, fighterReputation, fighterDamage, fighterArmor,
-                        fighterExp, fighterMoney, fighterTypeToShow, fighterCity, fighterMessage);
+                    //var fighterToSend = new FighterViewModel(fighterId,userId, fighterName, fighterHealth, fighterLevel, fighterReputation, fighterDamage, fighterArmor,
+                    //    fighterExp, fighterMoney, fighterTypeToShow, fighterCity, fighterMessage);
 
-                    this.Frame.Navigate(typeof(UserFighterPage), fighterToSend);
+                    this.Frame.Navigate(typeof(UserFighterPage), res);
 
                 }
                 else
